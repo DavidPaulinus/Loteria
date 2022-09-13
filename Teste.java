@@ -6,7 +6,11 @@ public class Teste {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Bilhete b;
+
+		Bilhete b = new Bilhete();
+		;
+
+		String numeros = "", num = "";
 
 		boolean loop = true;
 
@@ -18,12 +22,20 @@ public class Teste {
 			if (resp.equalsIgnoreCase("s")) {
 				b = new Bilhete();
 				System.out.println("\nSeus números são: ");
-				System.out.println(b.sortear());
-
+				num = b.sortear();
+				System.out.println(num);
+				numeros += num + "\n";
 			} else {
 				break;
 
 			}
+
+		}
+
+		if (numeros != "") {
+
+			System.out.println("\nSeus números foram: ");
+			System.out.println(numeros);
 
 		}
 		sc.close();
