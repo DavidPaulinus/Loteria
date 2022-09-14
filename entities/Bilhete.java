@@ -6,7 +6,6 @@ public class Bilhete {
 	Random rand = new Random();
 	StringBuffer sb=new StringBuffer();
 	
-	private String numeros="";
 	
 	public String sortear() {
 		for(int i=0;i<5;i++) {
@@ -15,12 +14,8 @@ public class Bilhete {
 				sb.append("-");
 			}
 		}
-		numeros+=sb.toString()+"\n";
 		return sb.toString();
 	}
 	
-	public String numeros() {
-		return numeros;
-	}
 	
 }

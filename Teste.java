@@ -1,16 +1,22 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import entities.Bilhete;
 
 public class Teste {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
 
-		Bilhete b = new Bilhete();
-		;
+		FileWriter arq = new FileWriter(
+				"C:\\Users\\AdaumirM\\Downloads\\minhas coisas\\Programação\\eclipse\\Loteria\\src\\Números.txt");
+		PrintWriter reader = new PrintWriter(arq);
 
-		String numeros = "", num = "";
+		Bilhete b = new Bilhete();
+
+		String num = "";
 
 		boolean loop = true;
 
@@ -20,11 +26,18 @@ public class Teste {
 			String resp = sc.next();
 
 			if (resp.equalsIgnoreCase("s")) {
+				if (num == "") {
+					reader.println("\nSeus números foram: \n");
+
+				}
 				b = new Bilhete();
 				System.out.println("\nSeus números são: ");
+				
 				num = b.sortear();
 				System.out.println(num);
-				numeros += num + "\n";
+				
+				reader.println(num);
+				
 			} else {
 				break;
 
@@ -32,12 +45,11 @@ public class Teste {
 
 		}
 
-		if (numeros != "") {
-
-			System.out.println("\nSeus números foram: ");
-			System.out.println(numeros);
-
+		if (num != "") {
+			System.out.println("Arquivo salvo com sucesso!");
 		}
+
+		arq.close();
 		sc.close();
 	}
 
