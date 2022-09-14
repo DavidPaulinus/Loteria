@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +10,9 @@ public class Teste {
 
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
+
+		File file = new File(
+				"C:\\Users\\AdaumirM\\Downloads\\minhas coisas\\Programação\\eclipse\\Loteria\\src\\Números.txt");
 
 		FileWriter arq = new FileWriter(
 				"C:\\Users\\AdaumirM\\Downloads\\minhas coisas\\Programação\\eclipse\\Loteria\\src\\Números.txt");
@@ -27,17 +31,19 @@ public class Teste {
 
 			if (resp.equalsIgnoreCase("s")) {
 				if (num == "") {
+					System.out.println("\nUm arquivo foi criado para salvar seus números nele.");
+
 					reader.println("\nSeus números foram: \n");
 
 				}
 				b = new Bilhete();
 				System.out.println("\nSeus números são: ");
-				
+
 				num = b.sortear();
-				System.out.println(num);
-				
+				System.out.println(num + "\n");
+
 				reader.println(num);
-				
+
 			} else {
 				break;
 
@@ -46,7 +52,7 @@ public class Teste {
 		}
 
 		if (num != "") {
-			System.out.println("Arquivo salvo com sucesso!");
+			System.out.println("\nArquivo salvo com sucesso!");
 		}
 
 		arq.close();
